@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user! :except => [:index, :show]
 
   def index
   end
@@ -11,6 +12,7 @@ class ReviewsController < ApplicationController
   def create
     @company = Company.find_by(id: params[:company_id])
     review = Review.new(review_params)
+    review.user_id = current_user.id
     @company.reviews << review
     if review.valid?
       @company.save
@@ -44,6 +46,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:description, :question_1, :question_2, :question_3, :question_4, :question_5, :question_6).merge(user: current_user)
+    params.require(:review).permit(:description, :question_1, :question_2, :question_3, :question_4, :question_5, :question_6, :user_id)
   end
 end
