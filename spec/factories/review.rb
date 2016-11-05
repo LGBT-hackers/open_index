@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :review do
     description "Great"
-    company
-    user
+    company { create(:company) }
+    user { create(:user) }
   end
 end
