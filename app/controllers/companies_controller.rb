@@ -16,6 +16,10 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
+  def new
+    @company = Company.new
+  end
+
   def create
     company = Company.new(company_params)
     if company.save
