@@ -2,7 +2,11 @@
   <%= f.label :description %>
   <%= f.text_area :description %>
   <%= f.label :question_1 %>
-  <%= f.text_area :question_1 %>
+  <%= f.radio_button, @review, :question_1, "2" %> Strongly Agree
+  <%= f.radio_button :question_1, "1" %> Agree
+  <%= f.radio_button :question_1, "0" %> Neither Agree Nor Disagree
+  <%= f.radio_button :question_1, "-1" %> Disagree
+  <%= f.radio_button :question_1, "-2"%> Agree
   <%= f.label :question_2 %>
   <%= f.text_area :question_2 %>
   <%= f.label :question_3 %>
