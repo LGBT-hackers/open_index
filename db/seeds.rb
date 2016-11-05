@@ -11,3 +11,6 @@ Company.create(
   industry: 'Computer Software',
   website: 'www.fakewebsite.com'
 )
+
+user = User.create!(email:"jamie_is_a_piece_of_pie@pie.com", password:"piepiepie")
+user.save!
