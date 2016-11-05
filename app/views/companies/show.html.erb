@@ -1,5 +1,5 @@
 <h1><%=@company.name%></h1>
-<p>Industry: <%=@company.industry%></p>
-<p>Website: <%@company.website%></p>
+<% if @company.industry != '' %><p>Industry: <%=@company.industry%></p><%end%>
+<% if @company.website != '' %> <p>Website: <%@company.website%></p> <%end%>
 <%= link_to 'edit', edit_company_path(@company) %>
 <%= link_to("delete", company_path(@company), method: :delete) %>
