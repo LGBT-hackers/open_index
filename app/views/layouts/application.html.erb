@@ -35,7 +35,7 @@
       <%= label_tag :name, "Search for" %>
     <% end %>
     <%= text_field_tag(:name, params[:name], placeholder: "Company") %>
-    <%= link_to('Search', controller: 'companies', action: 'index') %>
+    <%= submit_tag 'Submit' %>
   <% end %>
 
   <% if notice %>

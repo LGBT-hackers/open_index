@@ -1,14 +1,14 @@
 <% if @companies.count == 0 %>
   There are no companies listed here
-  <% if @companies.empty? %>
+  <% if !@api_companies.empty? %>
     <% @api_companies.each do |company| %>
-      <p><%= link_to "#{company["name"]}", new_company_path %></p>
+      <p><%= link_to "#{company["name"]}", method: post, action: create, controller: companies %></p>
     <% end %>
   <% end %>
   Can't find your company? <%= link_to 'Add your company here!', new_company_path %>
 <% else %>
   <% @companies.each do |company| %>
-    <p><a href="companies/<%=company.id%>"><%=company.name %></a></p>
+    <p><a href="/companies/<%=company.id%>"><%=company.name %></a></p>
     <p> website: <%=company.industry %></p>
     <p> website: <%=company.website %></p>
   <% end %>
