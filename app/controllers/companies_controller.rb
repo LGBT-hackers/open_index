@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   include CompaniesHelper
   def index
+    binding.pry
     @searched_term = params[:name]
     if search_contains_characters(params)
       @companies =  Company.where('lower(name) LIKE ?', "%#{@searched_term}%".downcase).all.order(:name)
