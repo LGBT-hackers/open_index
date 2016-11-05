@@ -4,3 +4,10 @@
 <%= link_to 'edit', edit_company_path(@company) %>
 <%= link_to 'delete', company_path(@company), method: 'delete' %>
 <%= link_to "Leave Review?", new_company_review_path(@company) %>
+
+<%= @company.reviews.each do |review| %>
+  <li>
+    <%= review.description %>
+    <%= review.average_review_rating %>
+  </li>
+<% end %>
