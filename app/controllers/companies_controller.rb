@@ -31,17 +31,19 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    company = Company.find(params[:id])
+    @company = Company.find(params[:id])
   end
 
   def update
-    company = Company.find(params[:id])
-    company.update(company_params)
+    @company = Company.find(params[:id])
+    @company.update(company_params)
     redirect_to company_path
   end
 
   def destroy
-    company = Company.find(params[:id])
-    @name = company.name
+    @company = Company.find(params[:id])
+    @company.destroy
+    @name = @company.name
+    redirect_to company_path
   end
 end

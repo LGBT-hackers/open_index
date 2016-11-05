@@ -2,4 +2,4 @@
 <p>Industry: <%=@company.industry%></p>
 <p>Website: <%@company.website%></p>
 <%= link_to 'edit', edit_company_path(@company) %>
-<%= link_to 'delete', company_path(@company), method: 'delete' %>
+<%= link_to("delete", company_path(@company), method: :delete) %>
