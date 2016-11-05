@@ -29,16 +29,6 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def creating
-    company = Company.new(company_params)
-    if company.save
-      success_redirect(company[:name], company[:id])
-    else
-      byebug
-      fail_redirect(company)
-    end
-  end
-
   def edit
     company = Company.find(params[:id])
   end
