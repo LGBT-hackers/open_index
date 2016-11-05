@@ -2,9 +2,19 @@
 	<% if @companies.count == 0 %>
 		There are no companies listed here, <%= link_to 'add your company?', new_company_path %>
 	<% else %>
+
+<% if @companies.count == 0 %>
+  There are no companies listed here, would you like to add a company off GlassDoor?
+  <% if !@api_companies.empty? %>
+    <% @api_companies.each do |company| %>
+      <%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["logoUrl"], website: company["website"]) %>
+    <% end %>
+  <% end %>
+  Can't find your company? <%= link_to 'Add your company here!', new_company_path %>
+	<% else %>
 	<table class="table">
 		<tbody>
-	<% @companies.each do |company| %>
+		<% @companies.each do |company| %>
 			<tr>
 				<td class="company-name"><a href="companies/<%=company.id%>"><%=company.name %></a></td>
 				<td class="company-industry"> <%=company.industry %></td>

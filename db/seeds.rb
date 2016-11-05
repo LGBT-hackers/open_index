@@ -12,5 +12,5 @@ Company.create(
   website: 'www.fakewebsite.com'
 )
 
-user = User.create!(email:"jamie_is_a_piece_of_pie@pie.com", password:"piepiepie")
+user = User.create!(email:"jamie_is_a_piece_of_pie@pie.com", password:"piepiepie", :confirmed_at => Time.now)
 user.save!
