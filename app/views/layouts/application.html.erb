@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Open Index</title>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav>
-    <ul>
-      <li>
-        <%= link_to 'All Companies', companies_path %>
-      </li>
-      <% if user_signed_in? %>
-        <li>
-          <%= link_to 'Edit profile', edit_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to 'Sign in', new_user_session_path %>
-        </li>
-        <li>
-          <%= link_to 'Sign up', new_user_registration_path %>
-        </li>
+  <head>
+    <title>Open Index</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+          <%= content_tag(:div, msg, class: "alert alert-info") %>
       <% end %>
-    </ul>
-  </nav>
-
-  <%= form_tag companies_path, method: 'get' do %>
-    <% if params[:name] %>
-      <%= label_tag :name, "You are searching for" %>
-    <% else %>
-      <%= label_tag :name, "Search for" %>
-    <% end %>
-    <%= text_field_tag(:name, params[:name], placeholder: "Company") %>
-    <%= submit_tag "Search", :name => nil %>
-  <% end %>
-
-  <% if notice %>
-    <p class="alert alert-success"><%= notice unless notice.blank? %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert unless notice.blank? %></p>
-  <% end %>
-
-  <%= yield %>
-
+			<nav class="navbar navbar-light bg-faded">
+				<ul class="nav navbar-nav">
+					<a class="navbar-brand" href="#">
+				    <img src="open_index.png" height="50" alt="">
+				  </a>
+					<li class="nav-item">
+						<%= link_to 'All Companies', companies_path, class: 'nav-link' %>
+					</li>
+					<% if user_signed_in? %>
+						<li class="nav-item">
+							<%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>
+						</li>
+						<li class="nav-item">
+							<%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+						</li>
+					<% else %>
+						<li class="nav-item">
+							<%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+						</li>
+						<li class="nav-item">
+							<%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+						</li>
+					<% end %>
+				</ul>
+				<form class="form-inline float-xs-right">
+					<%= form_tag companies_path, method: 'get' do %>
+						<% if params[:name] %>
+							<%= label_tag :name, "You are searching for" %>
+						<% else %>
+							<%= label_tag :name, "Search for" %>
+						<% end %>
+						<%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control") %>
+						<%= submit_tag "Search", :name => nil, class: "btn btn-outline-success"%>
+					<% end %>
+				</form>
+			</nav>
+      <%= yield %>
+    </div>
   </body>
 </html>
