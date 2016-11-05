@@ -14,12 +14,12 @@ feature 'reviewing' do
     click_link company.name
     click_link "Leave Review?"
     fill_in "Description", with: "Great support for LGBT"
-    fill_in 'Question 1', with: 2
-    fill_in 'Question 2', with: 2
-    fill_in 'Question 3', with: 2
-    fill_in 'Question 4', with: 2
-    fill_in 'Question 5', with: 2
-    fill_in 'Question 6', with: 2
+    choose('review_question_1_2')
+    choose('review_question_2_2')
+    choose('review_question_3_2')
+    choose('review_question_4_2')
+    choose('review_question_5_2')
+    choose('review_question_6_2')
     click_button "Leave Review"
     expect(current_path).to eq "/companies/#{company.id}"
     expect(page).to have_content "Review created!"

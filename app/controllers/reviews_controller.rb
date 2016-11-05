@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     if review.valid?
       @company.save
       flash[:notice] = 'Review created!'
+      p review
       redirect_to company_path(@company)
     else
       flash[:notice] = 'unable to create review'
