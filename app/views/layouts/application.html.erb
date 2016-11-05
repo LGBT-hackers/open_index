@@ -15,7 +15,7 @@
 			<nav class="navbar navbar-light bg-faded">
 				<ul class="nav navbar-nav">
 					<a class="navbar-brand" href="#">
-				    <img src="open_index.png" height="50" alt="">
+				    <img src="/open_index.png" height="50" alt="">
 				  </a>
 					<li class="nav-item">
 						<%= link_to 'All Companies', companies_path, class: 'nav-link' %>
@@ -36,8 +36,8 @@
 						</li>
 					<% end %>
 				</ul>
-				<form class="form-inline float-xs-right">
-					<%= form_tag companies_path, method: 'get' do %>
+				<div class="form-inline float-xs-right">
+					<%= form_tag('/companies' , method: :get) do %>
 						<% if params[:name] %>
 							<%= label_tag :name, "You are searching for" %>
 						<% else %>
@@ -46,7 +46,7 @@
 						<%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control") %>
 						<%= submit_tag "Search", :name => nil, class: "btn btn-outline-success"%>
 					<% end %>
-				</form>
+				</div>
 			</nav>
       <%= yield %>
     </div>
