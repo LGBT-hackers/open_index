@@ -2,7 +2,13 @@
   There are no companies listed here
   <% if !@api_companies.empty? %>
     <% @api_companies.each do |company| %>
-      <p><%= link_to "#{company["name"]}", method: post, action: create, controller: companies %></p>
+      <%= form_for Company.new do |f| %>
+        <%= f.hidden_field :name, value: company["name"], required: true %>
+        <%= f.hidden_field :industry, value: company["industry"], required: true %>
+        <%= f.hidden_field :logoUrl, value: company["logoUrl"], required: true %>
+        <%= f.hidden_field :website, value: company[:website], required: true %>
+        <%= f.submit "#{company["name"]}" %>
+      <% end %>
     <% end %>
   <% end %>
   Can't find your company? <%= link_to 'Add your company here!', new_company_path %>
