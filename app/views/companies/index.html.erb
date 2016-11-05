@@ -1,8 +1,22 @@
 <% if @companies.count == 0 %>
-  There are no companies listed here, <%= link_to 'add your company?', new_company_path %>
+  <% if !@api_companies %>
+    We couldn't find any companies, would you like to add one? <%= link_to 'Add your company here!', new_company_path %>
+  <% else %>
+    There are no companies listed here, would you like to add a company off GlassDoor?
+    <% if !@api_companies.empty? %>
+      <% @api_companies.each do |company| %>
+        <p>
+          <%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["logoUrl"], website: company["website"], api: true) %>
+        </p>
+      <% end %>
+    <% else %>
+      Can't find your company? <%= link_to 'Add your company here!', new_company_path %>
+    <% end %>
+  <% end %>
+
 <% else %>
   <% @companies.each do |company| %>
-    <p><a href="companies/<%=company.id%>"><%=company.name %></a></p>
+    <p><a href="/companies/<%=company.id%>"><%=company.name %></a></p>
     <p> website: <%=company.industry %></p>
     <p> website: <%=company.website %></p>
   <% end %>

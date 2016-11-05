@@ -3,6 +3,8 @@
 <head>
   <title>Open Index</title>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
   <nav>
@@ -35,7 +37,7 @@
       <%= label_tag :name, "Search for" %>
     <% end %>
     <%= text_field_tag(:name, params[:name], placeholder: "Company") %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag 'Submit' %>
   <% end %>
 
   <% if notice %>
