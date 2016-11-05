@@ -39,10 +39,12 @@ group :development, :test do
 end
 
 group :test do
+  gem 'pry'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
   gem 'factory_girl'
+  gem 'database_cleaner'
 end
 
 group :development do
