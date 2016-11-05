@@ -1,7 +1,4 @@
 module CompaniesHelper
-  def get_unique(companies)
-    companies.map {|company| company.name }.uniq
-  end
 
   def search_contains_characters(params)
     match_data = params[:name] =~ /\w/
@@ -10,15 +7,15 @@ module CompaniesHelper
 
   def company_params
     if params['company']
-      params['company'].permit(:topic, :industry, :user_id, :logoUrl, :website)
+      params['company'].permit(:name, :industry, :logoUrl, :website)
     else
-      params.permit(:topic, :industry, :user_id, :logoUrl, :website)
+      params.permit(:name, :industry, :logoUrl, :website)
     end
   end
 
-  def success_redirect(title)
+  def success_redirect(name, id)
     flash[:notice] = "Your company named \"#{name}\" has been submitted."
-    redirect_to '/companies'
+    redirect_to "/companies/#{id}"
   end
 
   def fail_redirect(company)
