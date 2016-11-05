@@ -1,5 +1,6 @@
 <h1><%=@company.name%></h1>
 <p>Industry: <%=@company.industry%></p>
 <p>Website: <%@company.website%></p>
+<div id="progress"></div>
 <%= link_to 'edit', edit_company_path(@company) %>
 <%= link_to("delete", company_path(@company), method: :delete) %>
