@@ -1,7 +1,4 @@
 module CompaniesHelper
-  def get_unique(companies)
-    companies.map {|company| company.name }.uniq
-  end
 
   def search_contains_characters(params)
     match_data = params[:name] =~ /\w/
@@ -16,9 +13,9 @@ module CompaniesHelper
     end
   end
 
-  def success_redirect(title)
+  def success_redirect(name, id)
     flash[:notice] = "Your company named \"#{name}\" has been submitted."
-    redirect_to '/companies'
+    redirect_to '/companies/id'
   end
 
   def fail_redirect(company)

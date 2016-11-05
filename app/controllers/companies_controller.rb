@@ -4,10 +4,12 @@ class CompaniesController < ApplicationController
     @searched_term = params[:name]
     if search_contains_characters(params)
       @companies =  Company.where('lower(name) LIKE ?', "%#{@searched_term}%".downcase).all.order(:name)
+      if @companies.count == 0
+         @api_companies = HTTParty.get("http://api.glassdoor.com/api/api.htm?t.p=#{ENV["GD_ID"]}&t.k=#{ENV["GD_KEY"]}&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=#{@searched_term}")["response"]["employers"]
+      end
     else
-      @companies = Company.all.order(:name)
+      @companies = Company.all
     end
-    @company_names = get_unique(@companies)
   end
 
   def show
@@ -17,7 +19,7 @@ class CompaniesController < ApplicationController
   def create
     company = Company.new(company_params)
     if company.save
-      success_redirect(company[:name])
+      success_redirect(company[:name], company[:id])
     else
       fail_redirect(company)
     end
