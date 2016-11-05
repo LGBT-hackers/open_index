@@ -9,5 +9,6 @@
   <li>
     <%= review.description %>
     <%= review.average_review_rating %>
+    <%= link_to "Edit Review", edit_company_review_path(review) %>
   </li>
 <% end %>
