@@ -2,7 +2,7 @@
   There are no companies listed here
   <% if !@api_companies.empty? %>
     <% @api_companies.each do |company| %>
-      <%= form_for Company.new do |f| %>
+      <%= form_for @company do |f| %>
         <%= f.hidden_field :name, value: company["name"], required: true %>
         <%= f.hidden_field :industry, value: company["industry"], required: true %>
         <%= f.hidden_field :logoUrl, value: company["logoUrl"], required: true %>
