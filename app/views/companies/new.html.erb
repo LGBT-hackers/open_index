@@ -1,0 +1,11 @@
+<%= form_for @company do |f| %>
+  <%= f.label 'Name' %>
+  <%= f.text_field :name, placeholder: 'E.g. Google', value: params[:name], required: true %>
+  <%= f.label 'Industry' %>
+  <%= f.text_field :industry, value: params[:industry], required: true %>
+  <%= f.label 'Photo Url' %>
+  <%= f.text_field :logoUrl, value: params[:logoUrl], required: true %>
+  <%= f.label 'Website' %>
+  <%= f.text_field :website, value: params[:website], required: true %>
+  <%= f.submit 'Submit' %>
+<% end %>
