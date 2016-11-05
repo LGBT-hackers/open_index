@@ -4,6 +4,13 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.text :description
       t.integer :company_id
       t.integer :user_id
+      t.string  :category
+      t.integer :question_1
+      t.integer :question_2
+      t.integer :question_3
+      t.integer :question_4
+      t.integer :question_5
+      t.integer :question_6
       t.timestamps
     end
   end
