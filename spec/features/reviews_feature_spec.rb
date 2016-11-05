@@ -10,14 +10,19 @@ feature 'reviewing' do
   end
 
   scenario 'allows users to leave a review using a form' do
-    visit '/'
-    p page.body
+    visit '/companies'
     click_link company.name
-    click_link "Review #{company.name}"
-    fill_in "description", with: "Great support for LGBT"
+    click_link "Leave Review?"
+    fill_in "Description", with: "Great support for LGBT"
+    fill_in 'Question 1', with: 2
+    fill_in 'Question 2', with: 2
+    fill_in 'Question 3', with: 2
+    fill_in 'Question 4', with: 2
+    fill_in 'Question 5', with: 2
+    fill_in 'Question 6', with: 2
     click_button "Leave Review"
-    expect(current_page).to eq '/companies'
-    expect(page).to have_content "Great support for LGBT"
+    expect(current_path).to eq "/companies/#{company.id}"
+    expect(page).to have_content "Review created!"
   end
 
 end

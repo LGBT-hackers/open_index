@@ -1,0 +1,17 @@
+<%= form_for [@company, @review] do |f| %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :question_1 %>
+  <%= f.text_area :question_1 %>
+  <%= f.label :question_2 %>
+  <%= f.text_area :question_2 %>
+  <%= f.label :question_3 %>
+  <%= f.text_area :question_3 %>
+  <%= f.label :question_4 %>
+  <%= f.text_area :question_4 %>
+  <%= f.label :question_5 %>
+  <%= f.text_area :question_5 %>
+  <%= f.label :question_6 %>
+  <%= f.text_area :question_6 %>
+  <%= f.submit 'Leave Review' %>
+<% end %>
