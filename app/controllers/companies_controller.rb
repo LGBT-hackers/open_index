@@ -19,16 +19,14 @@ class CompaniesController < ApplicationController
   end
 
   def new
+    if params["api"]
+      company_create
+    end
     @company = Company.new
   end
 
   def create
-    company = Company.new(company_params)
-    if company.save
-      success_redirect(company[:name], company[:id])
-    else
-      fail_redirect(company)
-    end
+    company_create
   end
 
   def edit
@@ -46,5 +44,16 @@ class CompaniesController < ApplicationController
     @company.destroy
     @name = @company.name
     redirect_to '/companies'
+  end
+
+  private
+
+  def company_create
+    company = Company.new(company_params)
+    if company.save
+      success_redirect(company[:name], company[:id])
+    else
+      fail_redirect(company)
+    end
   end
 end
