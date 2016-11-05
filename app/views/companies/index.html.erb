@@ -1,0 +1,9 @@
+<% if @companies.count == 0 %>
+  There are no companies listed here, <%= link_to 'add your company?', new_company_path %>
+<% else %>
+  <% @companies.each do |company| %>
+    <p><a href="companies/<%=company.id%>"><%=company.name %></a></p>
+    <p> website: <%=company.industry %></p>
+    <p> website: <%=company.website %></p>
+  <% end %>
+<% end %>
