@@ -42,6 +42,7 @@ group :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'rspec-collection_matchers'
+  gem 'factory_girl'
 end
 
 group :development do
