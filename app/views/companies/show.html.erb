@@ -1,8 +1,5 @@
 <h1><%=@company.name%></h1>
 <p>Industry: <%=@company.industry%></p>
 <p>Website: <%@company.website%></p>
-
-<% if user_signed_in? && @company.user_id == current_user.id %>
-  <%= link_to 'edit', edit_company_path(@company) %>
-  <%= link_to 'delete', company_path(@company), method: 'delete' %>
-<% end %>
+<%= link_to 'edit', edit_company_path(@company) %>
+<%= link_to 'delete', company_path(@company), method: 'delete' %>

@@ -1,0 +1,12 @@
+Edit the Investment
+<%= form_for(@company, :url => {:action => 'update'}) do |t| %>
+  <%= t.label 'Name' %>
+  <%= t.text_field 'name' %>
+  <%= t.label 'Industry' %>
+  <%= t.text_field 'industry' %>
+  <%= t.label 'Photo Url' %>
+  <%= t.text_field 'photoUrl' %>
+  <%= t.label 'Website' %>
+  <%= t.text_field 'website' %>
+  <%= t.submit 'Submit' %>
+<% end %>
