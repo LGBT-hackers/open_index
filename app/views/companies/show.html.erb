@@ -14,6 +14,7 @@
     <li>
       <%= review.description %>
       <%= review.average_review_rating %>
+      <div id="progress"></div>
       <%= link_to "Edit Review", edit_company_review_path(@company, review) %>
       <%= link_to "delete Review", company_review_path(@company, review), method: :delete %>
     </li>
