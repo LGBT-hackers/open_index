@@ -1,4 +1,8 @@
 class ReviewsController < ApplicationController
+
+  def index
+  end
+
   def new
     @company = Company.find_by(id: params[:company_id])
     @review = Review.new
@@ -11,7 +15,6 @@ class ReviewsController < ApplicationController
     if review.valid?
       @company.save
       flash[:notice] = 'Review created!'
-      p review
       redirect_to company_path(@company)
     else
       flash[:notice] = 'unable to create review'
@@ -20,6 +23,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @company = Company.find_by(id: params[:company_id])
     @review = Review.find(params[:id])
   end
 
@@ -29,6 +33,14 @@ class ReviewsController < ApplicationController
     @review.update(review_params)
     redirect_to company_path(@company)
   end
+
+  def destroy
+    review = Review.find_by(id: params[:id])
+    review.destroy!
+    flash[:notice] = 'review deleted'
+    redirect_to companies_path
+  end
+
   private
 
   def review_params

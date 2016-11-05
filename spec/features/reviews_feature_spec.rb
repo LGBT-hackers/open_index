@@ -58,4 +58,21 @@ feature 'reviewing' do
     click_button "Update Review"
     expect(page).to have_content "OK support for LGBT"
   end
+
+  scenario 'allows user to delete their review and rating' do
+    visit '/companies'
+    click_link company.name
+    click_link "Leave Review?"
+    fill_in "Description", with: "Great support for LGBT"
+    choose('review_question_1_2')
+    choose('review_question_2_2')
+    choose('review_question_3_2')
+    choose('review_question_4_2')
+    choose('review_question_5_2')
+    choose('review_question_6_2')
+    click_button "Leave Review"
+    click_link "delete Review"
+    expect(page).to have_content "review deleted"
+  end
+
 end
