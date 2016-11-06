@@ -17,7 +17,7 @@
 						</p>
 					</div>
 					<div class="col-sm-6 col-md-6">
-						<h4>Open Index: <%= @company.open_index.round(2) %></h4>
+            <div id="progress" value="<%=(@company.open_index/100)%>"></div>
 					</div>
 				</div>
 			</div>
