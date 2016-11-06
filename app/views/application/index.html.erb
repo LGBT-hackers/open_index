@@ -22,12 +22,12 @@ We hope to expand Open Index to include questions for different minority groups 
     <% Company.lgbt_leaderboard.each do |company, index| %>
       <tr>
         <td class="company-name" style="vertical-align:middle">
-          <a href="companies/<%=company.id%>" class="comp_name"><%=company.name.upcase %></a>
+          <% if company.name %><a href="companies/<%=company.id%>" class="comp_name"><%=company.name.upcase %><%end%></a>
         </td>
         <td class="company-industry" style="vertical-align:middle">
-          <%=company.industry %></td>
+          <% if company.industry %><%=company.industry %><%end%></td>
         <td class="company-website" style="vertical-align:middle">
-          <a href="https://<%=company.website%>"><%=company.website %></a></td>
+          <% if company.website %><a href="<%=company.website%>"><%=company.website %><%end%></a></td>
         <td class="company-rating">
           <div class="c100 p<%=index.round%> small">
               <span>	<%= company.open_index.round %>
