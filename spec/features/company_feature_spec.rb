@@ -12,7 +12,7 @@ feature 'company' do
   scenario 'allows user to see company_index' do
     visit '/companies'
     click_link company.name
-    click_link "Leave Review?"
+    click_button "Leave Review?"
     fill_in "Description", with: "Great support for LGBT"
     choose('review_question_1_2')
     choose('review_question_2_2')
