@@ -1,4 +1,4 @@
-<div class="container-fluid companies">
+<div class="container-fluid">
     <% if @companies.count == 0 %>
         <% if !@api_companies %>
             <div class="no-companies container-fluid">
@@ -22,16 +22,23 @@
             <%= link_to 'Add your company here!', new_company_path %>
         <% end %>
     <% else %>
-        <table class="table">
+    <div class="table-responsive">
+        <table class="table table-hover">
             <tbody>
+              <tr>
+                <th>Company</th>
+                <th>Industry</th>
+                <th>Website</th>
+                <th>Rating</th>
+              </tr>
                 <% @companies.each do |company| %>
                 <tr>
-                    <td class="company-name">
+                    <td class="company-name" style="vertical-align:middle">
                         <a href="companies/<%=company.id%>"><%=company.name %></a>
                     </td>
-                    <td class="company-industry">
+                    <td class="company-industry" style="vertical-align:middle">
                         <%=company.industry %></td>
-                    <td class="company-website">
+                    <td class="company-website" style="vertical-align:middle">
                         <a href="<%=company.website%>"><%=company.website %></a></td>
                     <td class="company-rating">
                         <%=company.open_index.round %>
@@ -40,5 +47,6 @@
                 <% end %>
             </tbody>
         </table>
+      </div>
     <% end %>
 </div>
