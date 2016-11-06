@@ -1,8 +1,10 @@
 <h1><%=@company.name%></h1>
 <% if @company.industry != '' %><p>Industry: <%=@company.industry%></p><%end%>
 <% if @company.website != '' %> <p>Website: <a href="<%=@company.website%>"><%=@company.website%></a></p> <%end%>
-<%= link_to 'edit', edit_company_path(@company) %>
-<%= link_to("delete", company_path(@company), method: :delete) %>
+<% if current_user.admin %>
+  <%= link_to 'edit', edit_company_path(@company) %>
+  <%= link_to("delete", company_path(@company), method: :delete) %>
+<% end %>
 
 <%= link_to "Leave Review?", new_company_review_path(@company) %>
 
