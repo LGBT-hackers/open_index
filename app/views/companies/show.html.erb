@@ -1,22 +1,68 @@
-<h1><%=@company.name%></h1>
-<% if @company.industry != '' %><p>Industry: <%=@company.industry%></p><%end%>
-<% if @company.website != '' %> <p>Website: <a href="<%=@company.website%>"><%=@company.website%></a></p> <%end%>
-<% if current_user.admin %>
-  <%= link_to 'edit', edit_company_path(@company) %>
-  <%= link_to("delete", company_path(@company), method: :delete) %>
-<% end %>
+<div style="padding-top:25px; margin: auto; width: 50%;"></div> <!-- This line is ONLY for maaking space from the top! -->
+<div class="container" style="margin: auto; width: 90%; text-align: center ;">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-12">
+			<div class="well well-sm">
+				<div class="row">
+					<div class="col-sm-6 col-md-2">
+						<img src="<%=@company.logoUrl%>" class="img-rounded img-responsive" draggable="false" />
+					</div>
+					<div class="col-sm-6 col-md-4" style="text-align: left;">
+						<h4><%=@company.name%></h4>
+						<small>
+							<cite><%=@company.industry%><i class="glyphicon glyphicon-map-marker"></i></cite>
+						</small>
+						<p>
+							<i class="glyphicon glyphicon-globe"></i> <a href="https://<%=@company.website%>"><%=@company.website%></a> <br />
+						</p>
+					</div>
+					<div class="col-sm-6 col-md-6">
+            <script>
+            window.onload = function onLoad() {
+            var progressValue = $("#progress").attr('value');
+            console.log(progressValue)
+              var circle = new ProgressBar.Circle('#progress', {
+                  color: '#FCB03C ',
+                  strokeWidth: 4,
+                  trailWidth: 1,
+                  duration: 3000,
+                  easing: 'easeInOut',
+                  text: {
+                    autoStyleContainer: false
+                  },from: { color: '#aaa', width: 1 },
+                  to: { color: '#333', width: 4 },
+                  // Set default step function for all animate calls
+                  step: function(state, circle) {
+                    circle.path.setAttribute('stroke', state.color);
+                    circle.path.setAttribute('stroke-width', state.width);
 
-<%= link_to "Leave Review?", new_company_review_path(@company) %>
+                    var value = Math.round(circle.value() * 100);
+                    if (value === 0) {
+                      circle.setText('');
+                    } else {
+                      circle.setText(value);
+                    }
+                  }
+              });
 
-<% if @company.reviews.present? %>
-  <%= @company.reviews.each do |review| %>
-    <li>
-      <%= review.description %>
-      <%= review.average_review_rating %>
-      <%= link_to "Edit Review", edit_company_review_path(@company, review) %>
-      <%= link_to "delete Review", company_review_path(@company, review), method: :delete %>
-    </li>
-  <% end %>
+              circle.animate(progressValue);
+            };
 
-  <h1>Open Index: <%= @company.open_index.round(2) %></h1>
-<% end %>
+              </script>
+            <div id="progress" value="<%=(@company.open_index/100)%>"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+    <% if @company.reviews.present? %>
+      <% @company.reviews.each do |review| %>
+        <div class="panel panel-primary">
+          <div class="panel-body" >
+            <p><%= review.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= link_to "Leave Review?", new_company_review_path(@company), class: "btn btn-primary" %>
+	</div>
+</div>

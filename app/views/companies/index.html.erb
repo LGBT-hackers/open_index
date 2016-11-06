@@ -1,63 +1,60 @@
-<div class="container-fluid companies">
-	<% if @companies.count == 0 %>
-		<% if !@api_companies %>
-			<div class="no-companies container-fluid">
-				We couldn't find any companies, would you like to add one?
-			</div>
-			<%= link_to 'Add your company here!', new_company_path %>
-		<% else %>
-			<div class="no-companies-gd container-fluid">
-				There are no companies listed here, would you like to add a company off GlassDoor?
-			</p>
-			<% if !@api_companies.empty? %>
-				<% @api_companies.each do |company| %>
-					<p>
-						<%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["logoUrl"], website: company["website"], api: true) %>
-					</p>
-				<% end %>
-			<% end %>
-			<div class="add-companies">
-				Can't find your company?
-			</div>
-			<%= link_to 'Add your company here!', new_company_path %>
-		<% end %>
-	<% else %>
-		<table id="leaderboard" class="table">
-			<tbody>
-				<h1>Leaderboard</h1>
-				<% @leaderboard.each do |company, index| %>
-					<tr>
-						<td class="company-name">
-							<%= company.name %>
-						</td>
-						<td class="company-industry">
-							<%=company.industry %></td>
-						<td class="company-website">
-							<%=company.website %></td>
-						<td class="company-rating">
-							<%= index %>
-						</td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<table class="table">
-			<tbody>
-				<% @companies.each do |company| %>
-				<tr>
-					<td class="company-name">
-						<a href="companies/<%=company.id%>"><%=company.name %></a>
-					</td>
-					<td class="company-industry">
-						<%=company.industry %></td>
-					<td class="company-website">
-						<a href="<%=company.website%>"><%=company.website %></a></td>
-					<td class="company-rating">
-						25
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	<% end %>
+<div class="container-fluid">
+    <% if @companies.count == 0 %>
+        <% if !@api_companies %>
+            <div class="no-companies container-fluid">
+                We couldn't find any companies, would you like to add one?
+            </div>
+            <%= link_to 'Add your company here!', new_company_path %>
+        <% else %>
+            <div class="no-companies-gd container-fluid">
+                There are no companies listed here, would you like to add a company off GlassDoor?
+            </p>
+            <% if !@api_companies.empty? %>
+                <% @api_companies.each do |company| %>
+                    <p>
+                        <%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["squareLogo"], website: company["website"], api: true) %>
+                    </p>
+                <% end %>
+            <% end %>
+            <div class="add-companies">
+                Can't find your company?
+            </div>
+            <%= link_to 'Add your company here!', new_company_path %>
+        <% end %>
+    <% else %>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th>Company</th>
+                <th>Industry</th>
+                <th>Website</th>
+                <th>Rating</th>
+              </tr>
+                <% @companies.each do |company| %>
+                <tr>
+                    <td class="company-name" style="vertical-align:middle">
+                        <% if company.name %><a href="companies/<%=company.id%>"><%=company.name %><%end%></a>
+                    </td>
+                    <td class="company-industry" style="vertical-align:middle">
+                        <% if company.industry %><%=company.industry %><%end%></td>
+                    <td class="company-website" style="vertical-align:middle">
+                        <% if company.website %><a href="<%=company.website%>"><%=company.website %><%end%></a></td>
+                        <td class="company-rating">
+                         <% if company.open_index != 0 %>
+                            <div class="c100 p<%=company.open_index.round %> small">
+                           <span>  <%=company.open_index.round %></span>
+                        <% end %>
+                       <div class="slice">
+                           <div class="bar"></div>
+                           <div class="fill"></div>
+                       </div>
+                   </div>
+                       </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+      </div>
+    <% end %>
 </div>

@@ -1,0 +1,45 @@
+<h2 style="text-align:center; padding:4%;"> Welcome to Open Index </h2>
+<p>Open Index aims to be a well-rounded indicator of minority group experiences in the workplace across companies. Similar to Glassdoor, users can post reviews about the workplace and rate different aspects from strongly disagree to strongly agree. At the hackathon, we focussed on LGBTQ+ specific issues, modeling the questions from the StoneWall workplace index.
+
+We hope to expand Open Index to include questions for different minority groups to share their experiences.
+</p>
+<center>
+<a href="/companies" class="btn">Look through companies now</a>
+</center>
+
+
+
+<div class="table-responsive">
+<table id="leaderboard" class="table table-hover">
+  <tbody>
+    <h1>Leaderboard</h1>
+    <tr>
+    <th>Company</th>
+    <th>Industry</th>
+    <th>Website</th>
+    <th>Rating</th>
+    </tr>
+    <% Company.lgbt_leaderboard.each do |company, index| %>
+      <tr>
+        <td class="company-name" style="vertical-align:middle">
+          <% if company.name %><a href="companies/<%=company.id%>" class="comp_name"><%=company.name.upcase %><%end%></a>
+        </td>
+        <td class="company-industry" style="vertical-align:middle">
+          <% if company.industry %><%=company.industry %><%end%></td>
+        <td class="company-website" style="vertical-align:middle">
+          <% if company.website %><a href="<%=company.website%>"><%=company.website %><%end%></a></td>
+        <td class="company-rating">
+          <div class="c100 p<%=index.round%> small">
+              <span>	<%= company.open_index.round %>
+              </span>
+              <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+              </div>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

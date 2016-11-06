@@ -9,8 +9,8 @@ RSpec.describe Review, type: :model do
     let(:user) { create(:user) }
     let(:company) { create(:company) }
     it "cannot be created twice" do
-      create(:review, company: company, user: user)
-      expect { create(:review, company: company, user: user) }.to raise_error(ActiveRecord::RecordInvalid)
+      create(:review, :medium, company: company, user: user)
+      expect { create(:review, :medium, company: company, user: user) }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 end
