@@ -12,6 +12,15 @@ RSpec.describe Company, type: :model do
   end
 
   context "lgbt_leaderboard" do
+    let(:company) { create(:company) }
+
+    it "leaderboard does not return company without reviews" do
+      leaderboard = described_class.lgbt_leaderboard
+      expect(leaderboard).to be_empty
+    end
+  end
+
+  context "lgbt_leaderboard" do
     let!(:company_1) { create(:company_with_min_reviews) }
     let!(:company_2) { create(:company_with_medium_reviews) }
     let!(:company_3) { create(:company_with_medium_reviews) }

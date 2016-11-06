@@ -1,5 +1,12 @@
 class Review < ApplicationRecord
   validates :user_id, uniqueness: { scope: :company_id }
+  validates_presence_of :question_1
+  validates_presence_of :question_2
+  validates_presence_of :question_3
+  validates_presence_of :question_4
+  validates_presence_of :question_5
+  validates_presence_of :question_6
+  validates_presence_of :description
 
   belongs_to :user
   belongs_to :company
