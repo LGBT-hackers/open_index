@@ -1,14 +1,15 @@
-<table id="leaderboard" class="table">
+<div class="table-responsive">
+<table id="leaderboard" class="table table-hover">
   <tbody>
     <h1>Leaderboard</h1>
     <% Company.lgbt_leaderboard.each do |company, index| %>
       <tr>
-        <td class="company-name">
-          <a href="companies/<%=company.id%>"><%=company.name %></a>
+        <td class="company-name" style="vertical-align:middle">
+          <a href="companies/<%=company.id%>" class="comp_name"><%=company.name.upcase %></a>
         </td>
-        <td class="company-industry">
+        <td class="company-industry" style="vertical-align:middle">
           <%=company.industry %></td>
-        <td class="company-website">
+        <td class="company-website" style="vertical-align:middle">
           <a href="<%=company.website%>"><%=company.website %></a></td>
         <td class="company-rating">
           <div class="c100 p<%=index.round%> small">
@@ -24,3 +25,4 @@
     <% end %>
   </tbody>
 </table>
+</div>
