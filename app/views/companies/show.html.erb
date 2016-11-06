@@ -1,10 +1,42 @@
+<div style="padding-top:25px; margin: auto; width: 50%;"></div> <!-- This line is ONLY for maaking space from the top! -->
+<div class="container" style="margin: auto; width: 90%; text-align: center ;">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-12">
+			<div class="well well-sm">
+				<div class="row">
+					<div class="col-sm-6 col-md-2">
+						<img src="<%=@company.logoUrl%>" class="img-rounded img-responsive" draggable="false" />
+					</div>
+					<div class="col-sm-6 col-md-4" style="text-align: left;">
+						<h4><%=@company.name%></h4>
+						<small>
+							<cite><%=@company.industry%><i class="glyphicon glyphicon-map-marker"></i></cite>
+						</small>
+						<p>
+							<i class="glyphicon glyphicon-globe"></i> <a href="<%=@company.website%>"><%=@company.website%></a> <br />
+						</p>
+					</div>
+					<div class="col-sm-6 col-md-6">
+						<h4>Open Index: <%= @company.open_index.round(2) %></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+    <% if @company.reviews.present? %>
+      <% @company.reviews.each do |review| %>
+        <div class="panel panel-primary">
+          <div class="panel-body" >
+            <p><%= review.description %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= button_to "Leave Review?", new_company_review_path(@company), class: "btn btn-primary" %>
+	</div>
+</div>
 <h1><%=@company.name%></h1>
 <% if @company.industry != '' %><p>Industry: <%=@company.industry%></p><%end%>
 <% if @company.website != '' %> <p>Website: <a href="http://<%=@company.website%>"><%=@company.website%></a></p> <%end%>
-<% if current_user.admin %>
-  <%= link_to 'edit', edit_company_path(@company) %>
-  <%= link_to("delete", company_path(@company), method: :delete) %>
-<% end %>
 
 <%= link_to "Leave Review?", new_company_review_path(@company) %>
 

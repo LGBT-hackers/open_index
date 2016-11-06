@@ -72,3 +72,109 @@
     }
   }
 }
+
+// profile
+
+.rate-btn {
+border-radius: 0;
+border: 0;
+border-bottom: 4px solid #CCCCCC;
+margin:0;
+-webkit-box-shadow: 0 5px 5px -6px rgba(0,0,0,.3);
+   -moz-box-shadow: 0 5px 5px -6px rgba(0,0,0,.3);
+		box-shadow: 0 5px 5px -6px rgba(0,0,0,.3);
+}
+.rate-btn .rate-btn-block:active, .rate-btn .rate-btn-lg:active {
+	-webkit-box-shadow: inset 0 3px 3px -5px rgba(0,0,0,.3);
+	   -moz-box-shadow: inset 0 3px 3px -5px rgba(0,0,0,.3);
+			box-shadow: inset 0 3px 3px -5px rgba(0,0,0,.3);
+}
+.rate-btn-friendly {
+	background-color: #80d752;
+	border-color: #61be26;
+	text-shadow: 1px 1px 0 #5fdb34;
+}
+.rate-btn-friendly:hover, .rate-btn-success:focus {
+	background-color: #75cd53;
+	border-color: #53aa27;
+}
+.rate-btn-report {
+	background-color: #FEAF20;
+	border-color: #d79a34;
+	text-shadow: 1px 1px 0 #db9e34;
+}
+.rate-btn-report:hover, .rate-btn-report:focus {
+	background-color: #f5a620;
+	border-color: #cd9034;
+}
+.rate-btn-heart {
+	background-color: #d73814;
+	border-color: #be0000;
+	text-shadow: 1px 1px 0 #ac2925;
+}
+.rate-btn-heart:hover, .rate-btn-danger:focus {
+	background-color: #cd3714;
+	border-color: #aa0000;
+}
+.rate-btn-like {
+	background-color: #4274d7;
+	border-color: #4d5bbe;
+	text-shadow: 1px 1px 0 #232bd5;
+}
+.rate-btn-like:hover, .rate-btn-primary:focus {
+	background-color: #426acd;
+	border-color: #4f56aa;
+}
+
+// profile
+
+.rate-btn {
+border-radius: 0;
+border: 0;
+border-bottom: 4px solid #CCCCCC;
+margin:0;
+-webkit-box-shadow: 0 5px 5px -6px rgba(0,0,0,.3);
+   -moz-box-shadow: 0 5px 5px -6px rgba(0,0,0,.3);
+		box-shadow: 0 5px 5px -6px rgba(0,0,0,.3);
+}
+.rate-btn .rate-btn-block:active, .rate-btn .rate-btn-lg:active {
+	-webkit-box-shadow: inset 0 3px 3px -5px rgba(0,0,0,.3);
+	   -moz-box-shadow: inset 0 3px 3px -5px rgba(0,0,0,.3);
+			box-shadow: inset 0 3px 3px -5px rgba(0,0,0,.3);
+}
+.rate-btn-friendly {
+	background-color: #80d752;
+	border-color: #61be26;
+	text-shadow: 1px 1px 0 #5fdb34;
+}
+.rate-btn-friendly:hover, .rate-btn-success:focus {
+	background-color: #75cd53;
+	border-color: #53aa27;
+}
+.rate-btn-report {
+	background-color: #FEAF20;
+	border-color: #d79a34;
+	text-shadow: 1px 1px 0 #db9e34;
+}
+.rate-btn-report:hover, .rate-btn-report:focus {
+	background-color: #f5a620;
+	border-color: #cd9034;
+}
+.rate-btn-heart {
+	background-color: #d73814;
+	border-color: #be0000;
+	text-shadow: 1px 1px 0 #ac2925;
+}
+.rate-btn-heart:hover, .rate-btn-danger:focus {
+	background-color: #cd3714;
+	border-color: #aa0000;
+}
+.rate-btn-like {
+	background-color: #4274d7;
+	border-color: #4d5bbe;
+	text-shadow: 1px 1px 0 #232bd5;
+}
+.rate-btn-like:hover, .rate-btn-primary:focus {
+	background-color: #426acd;
+	border-color: #4f56aa;
+}

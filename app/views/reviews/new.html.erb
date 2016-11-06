@@ -1,41 +1,85 @@
-<%= form_for [@company, @review] do |f| %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.label "Would you feel comfortable disclosing your sexual orientation at work?" %>
-  <%= f.radio_button :question_1, 2 %> Strongly Agree
-  <%= f.radio_button :question_1, 1 %> Agree
-  <%= f.radio_button :question_1, 0 %> Neither Agree Nor Disagree
-  <%= f.radio_button :question_1, -1 %> Disagree
-  <%= f.radio_button :question_1, -2 %> Strongly Disagree
-  <%= f.label "Would you feel comfortable reporting harrassment based on sexual orientation?" %>
-  <%= f.radio_button :question_2, 2 %> Strongly Agree
-  <%= f.radio_button :question_2, 1 %> Agree
-  <%= f.radio_button :question_2, 0 %> Neither Agree Nor Disagree
-  <%= f.radio_button :question_2, -1 %> Disagree
-  <%= f.radio_button :question_2, -2 %> Strongly Disagree
-  <%= f.label "Do you feel sexual orientation does not create any barriers to your career progression?" %>
-  <%= f.radio_button :question_3, 2 %> Strongly Agree
-  <%= f.radio_button :question_3, 1 %> Agree
-  <%= f.radio_button :question_3, 0 %> Neither Agree Nor Disagree
-  <%= f.radio_button :question_3, -1 %> Disagree
-  <%= f.radio_button :question_3, -2 %> Strongly Disagree
-  <%= f.label "Is there a visible LGBT community in your workplace?" %>
-  <%= f.radio_button :question_4, 2 %> Strongly Agree
-  <%= f.radio_button :question_4, 1 %> Agree
-  <%= f.radio_button :question_4, 0 %> Neither Agree Nor Disagree
-  <%= f.radio_button :question_4, -1 %> Disagree
-  <%= f.radio_button :question_4, -2 %> Strongly Disagree
-  <%= f.label "Do senior managers demonstrate a visible commitment to the LGBT community" %>
-  <%= f.radio_button :question_5, 2 %> Strongly Agree
-  <%= f.radio_button :question_5, 1 %> Agree
-  <%= f.radio_button :question_5, 0 %> Neither Agree Nor Disagree
-  <%= f.radio_button :question_5, -1 %> Disagree
-  <%= f.radio_button :question_5, -2 %> Strongly Disagree
-  <%= f.label "Does your workplace have diversirty training to equip staff with knowledege on LGBT issues?" %>
-  <%= f.radio_button :question_6, 2 %> Strongly Agree
-  <%= f.radio_button :question_6, 1 %> Agree
-  <%= f.radio_button :question_6, 0 %> Neither Agree Nor Disagree
-  <%= f.radio_button :question_6, -1 %> Disagree
-  <%= f.radio_button :question_6, -2 %> Strongly Disagree
-  <%= f.submit 'Leave Review' %>
-<% end %>
+<h1 style="text_align: center">Open Index review for <%= @company.name %></h1>
+<div class="form">
+  <%= form_for [@company, @review] do |f| %>
+    <h3><%= f.label "Would you feel comfortable disclosing your sexual orientation at work?" %></h3>
+    <div class="inline-question">
+      <%= f.label :Strongly_agree %>
+      <%= f.radio_button :question_1, 4 %>
+    </div>
+    <div class="inline-question">
+    <p>Agree</p>
+    <%= f.radio_button :question_1, 3 %>
+    </div>
+    <div class="inline-question">
+    <p>Neither Agree Nor Disagree</p>
+    <%= f.radio_button :question_1, 2 %>
+    </div>
+    <div class="inline-question">
+    <p>Disagree</p>
+    <%= f.radio_button :question_1, 1 %>
+    </div>
+    <div class="inline-question">
+    <p>Strongly Disagree</p>
+    <%= f.radio_button :question_1, 0 %>
+    </div>
+    <h3><%= f.label "Would you feel comfortable reporting harrassment based on sexual orientation?" %></h3>
+    <p>Strongly Agree</p>
+    <%= f.radio_button :question_2, 4 %>
+    <p>Agree</p>
+    <%= f.radio_button :question_2, 3 %>
+    <p>Neither Agree Nor Disagree</p>
+    <%= f.radio_button :question_2, 2 %>
+    <p>Disagree</p>
+    <%= f.radio_button :question_2, 1 %>
+    <p>Strongly Disagree</p>
+    <%= f.radio_button :question_2, 0 %>
+    <h3><%= f.label "Do you feel sexual orientation does not create any barriers to your career progression?" %></h3>
+    <p>Strongly Agree</p>
+    <%= f.radio_button :question_3, 4 %>
+    <p>Agree</p>
+    <%= f.radio_button :question_3, 3 %>
+    <p>Neither Agree Nor Disagree</p>
+    <%= f.radio_button :question_3, 2 %>
+    <p>Disagree</p>
+    <%= f.radio_button :question_3, 1 %>
+    <p>Strongly Disagree</p>
+    <%= f.radio_button :question_3, 0 %>
+    <h3><%= f.label "Is there a visible LGBT community in your workplace?" %></h3>
+    <p>Strongly Agree</p>
+    <%= f.radio_button :question_4, 4 %>
+    <p>Agree</p>
+    <%= f.radio_button :question_4, 3 %>
+    <p>Neither Agree Nor Disagree</p>
+    <%= f.radio_button :question_4, 2 %>
+    <p>Disagree</p>
+    <%= f.radio_button :question_4, 1 %>
+    <p>Strongly Disagree</p>
+    <%= f.radio_button :question_4, 0 %>
+    <h3><%= f.label "Do senior managers demonstrate a visible commitment to the LGBT community" %></h3>
+    <p>Strongly Agree</p>
+    <%= f.radio_button :question_5, 4 %>
+    <p>Agree</p>
+    <%= f.radio_button :question_5, 3 %>
+    <p>Neither Agree Nor Disagree</p>
+    <%= f.radio_button :question_5, 2 %>
+    <p>Disagree</p>
+    <%= f.radio_button :question_5, 1 %>
+    <p>Strongly Disagree</p>
+    <%= f.radio_button :question_5, 0 %>
+    <h3><%= f.label "Does your workplace have diversirty training to equip staff with knowledege on LGBT issues?" %></h3>
+    <p>Strongly Agree</p>
+    <%= f.radio_button :question_6, 4 %>
+    <p>Agree</p>
+    <%= f.radio_button :question_6, 3 %>
+    <p>Neither Agree Nor Disagree</p>
+    <%= f.radio_button :question_6, 2 %>
+    <p>Disagree</p>
+    <%= f.radio_button :question_6, 1 %>
+    <p>Strongly Disagree</p>
+    <%= f.radio_button :question_6, 0 %>
+    <%= f.label :description %>
+    <h3>What you like to talk a bit more in detail about your experiances at <%= @company.name %>?</h3>
+    <%= f.text_area :description, class: 'form-control custom-control'%>
+    <%= f.submit 'Leave Review', class: 'btn btn-primary btn-lg' %>
+  <% end %>
+</div >
