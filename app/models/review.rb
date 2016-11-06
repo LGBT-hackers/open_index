@@ -4,6 +4,8 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :company
 
+  has_many :flags
+
   def average_review_rating
     total_rating.to_f / 6
   end
