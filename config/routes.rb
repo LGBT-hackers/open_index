@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root 'application#index'
 
   resources :companies do
-    resources :reviews
+    resources :reviews do
+      resources :flags
+    end
   end
 
 	devise_for :users, controllers: { confirmations: 'confirmations' }
