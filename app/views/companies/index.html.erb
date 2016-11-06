@@ -22,9 +22,10 @@
 			<%= link_to 'Add your company here!', new_company_path %>
 		<% end %>
 	<% else %>
+	<div class="leaderboard_class">
 		<table id="leaderboard" class="table">
 			<tbody>
-				<h1>Leaderboard</h1>
+				<h1 class="tableHeader" >Leaderboard</h1>
 				<% @leaderboard.each do |company, index| %>
 					<tr>
 						<td class="company-name">
@@ -41,8 +42,11 @@
 				<% end %>
 			</tbody>
 		</table>
+	</div>
+	<div class="allcompanies">
 		<table class="table">
 			<tbody>
+				<h1 class="tableHeader" >All companies</h1>
 				<% @companies.each do |company| %>
 				<tr>
 					<td class="company-name">
@@ -59,5 +63,6 @@
 				<% end %>
 			</tbody>
 		</table>
+	</div>
 	<% end %>
 </div>

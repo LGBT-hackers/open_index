@@ -21,6 +21,11 @@
 	}
 }
 
+.tableHeader {
+  display: block;
+  margin: auto;
+}
+
 .companies {
 
 	a {
@@ -30,7 +35,7 @@
 	}
 
 	table {
-		margin: 50px auto;
+		margin: 25px auto;
 		max-width: 900px;
 
 		td {
@@ -54,4 +59,16 @@
 	.company-rating {
 
 	}
+
+  .leaderboard_class {
+    .tableHeader {
+      text-align: center;
+    }
+  }
+
+  .allcompanies {
+    .tableHeader {
+      text-align: center;
+    }
+  }
 }
