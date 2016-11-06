@@ -22,6 +22,24 @@
 			<%= link_to 'Add your company here!', new_company_path %>
 		<% end %>
 	<% else %>
+		<table id="leaderboard" class="table">
+			<tbody>
+				<% @leaderboard.each do |company, index| %>
+					<tr>
+						<td class="company-name">
+							<a href="companies/<%=company.id%>"><%=company.name %></a>
+						</td>
+						<td class="company-industry">
+							<%=company.industry %></td>
+						<td class="company-website">
+							<a href="<%=company.website%>"><%=company.website %></a></td>
+						<td class="company-rating">
+							index
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
 		<table class="table">
 			<tbody>
 				<% @companies.each do |company| %>

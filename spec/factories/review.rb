@@ -14,12 +14,12 @@ FactoryGirl.define do
     end
 
     trait :min do
-      question_1 -2
-      question_2 -2
-      question_3 -2
-      question_4 -2
-      question_5 -2
-      question_6 -2
+      question_1 0
+      question_2 0
+      question_3 0
+      question_4 0
+      question_5 0
+      question_6 0
     end
 
     trait :medium do

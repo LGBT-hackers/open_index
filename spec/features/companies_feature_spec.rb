@@ -9,9 +9,11 @@ feature 'companies leaderboard' do
 
   scenario "user sees only top 3 companies" do
     visit '/companies'
-    expect(page).to have_content(company_4.name)
-    expect(page).to have_content(company_3.name)
-    expect(page).to have_content(company_2.name)
-    expect(page).not_to have_content(company_1.name)
+    within('#leaderboard') do
+      expect(page).to have_content(company_4.name)
+      expect(page).to have_content(company_3.name)
+      expect(page).to have_content(company_2.name)
+      expect(page).not_to have_content(company_1.name)
+    end
   end
 end
