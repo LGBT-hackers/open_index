@@ -2,7 +2,7 @@
 <% if @company.industry != '' %><p>Industry: <%=@company.industry%></p><%end%>
 <% if @company.website != '' %> <p>Website: <a href="<%=@company.website%>"><%=@company.website%></a></p>
 <div id="progress" value="<%=(@company.open_index/100)%>"></div>
- <%end%>
+<%end%>
 <% if current_user.admin %>
   <%= link_to 'edit', edit_company_path(@company) %>
   <%= link_to("delete", company_path(@company), method: :delete) %>
