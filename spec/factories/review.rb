@@ -5,12 +5,12 @@ FactoryGirl.define do
     user { create(:user) }
 
     trait :max do
-      question_1 2
-      question_2 2
-      question_3 2
-      question_4 2
-      question_5 2
-      question_6 2
+      question_1 4
+      question_2 4
+      question_3 4
+      question_4 4
+      question_5 4
+      question_6 4
     end
 
     trait :min do
@@ -23,12 +23,12 @@ FactoryGirl.define do
     end
 
     trait :medium do
-      question_1 1
-      question_2 1
-      question_3 1
-      question_4 1
-      question_5 1
-      question_6 1
+      question_1 2
+      question_2 2
+      question_3 2
+      question_4 2
+      question_5 2
+      question_6 2
     end
   end
 end
