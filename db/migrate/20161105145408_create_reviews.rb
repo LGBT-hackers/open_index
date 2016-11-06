@@ -3,8 +3,8 @@ class CreateReviews < ActiveRecord::Migration[5.0]
     create_table :reviews do |t|
       t.text :description
       t.integer :company_id
-      t.integer :user_id
       t.string  :category
+      t.integer :user_id
       t.integer :question_1
       t.integer :question_2
       t.integer :question_3
@@ -12,6 +12,7 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.integer :question_5
       t.integer :question_6
       t.timestamps
+      t.references :user
     end
   end
 end

@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
     else
       @companies = Company.all
     end
+    @leaderboard = Company.lgbt_leaderboard
   end
 
   def show

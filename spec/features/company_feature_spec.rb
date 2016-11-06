@@ -21,6 +21,6 @@ feature 'company' do
     choose('review_question_5_2')
     choose('review_question_6_2')
     click_button "Leave Review"
-    expect(page).to have_content 'Open Index: 100'
+    expect(page).to have_content 'Open Index: 50'
   end
 end

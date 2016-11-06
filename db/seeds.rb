@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Company.create(
-  name: 'Not on the high street',
-  industry: 'Computer Software',
-  website: 'www.fakewebsite.com'
-)
+# Company.create(
+#   name: 'Not on the high street',
+#   industry: 'Computer Software',
+#   website: 'www.fakewebsite.com'
+# )
 
 user = User.create!(email:"jamie_is_a_piece_of_pie@pie.com", password:"piepiepie", :confirmed_at => Time.now)
 user.save!
