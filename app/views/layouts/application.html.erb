@@ -12,9 +12,6 @@
 
   <body>
     <div class="container">
-      <% flash.each do |name, msg| %>
-          <%= content_tag(:div, msg, class: "alert alert-info") %>
-      <% end %>
 			<nav class="navbar navbar-light bg-faded">
 				<ul class="nav navbar-nav">
 					<a class="navbar-brand" href="/">
@@ -51,6 +48,9 @@
 					<% end %>
 				</div>
 			</nav>
+      <% flash.each do |name, msg| %>
+          <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
