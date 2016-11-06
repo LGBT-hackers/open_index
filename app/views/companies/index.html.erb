@@ -41,8 +41,10 @@
                     <td class="company-website" style="vertical-align:middle">
                         <% if company.website %><a href="<%=company.website%>"><%=company.website %><%end%></a></td>
                         <td class="company-rating">
-                         <div class="c100 p<%=company.open_index.round %> small">
-                       <span>  <%=company.open_index.round %></span>
+                         <% if company.open_index != 0 %>
+                            <div class="c100 p<%=company.open_index.round %> small">
+                           <span>  <%=company.open_index.round %></span>
+                        <% end %>
                        <div class="slice">
                            <div class="bar"></div>
                            <div class="fill"></div>

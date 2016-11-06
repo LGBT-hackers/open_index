@@ -11,6 +11,9 @@ class Company < ApplicationRecord
   end
 
   def open_index
+    if reviews.count == 0
+      return 0
+    end
     max_score = reviews.count * 24
     reviews.map(&:total_rating).reduce(:+).to_f / max_score.to_f * 100
   end
