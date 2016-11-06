@@ -11,7 +11,7 @@
 <%= link_to "Leave Review?", new_company_review_path(@company) %>
 
 <% if @company.reviews.present? %>
-  <%= @company.reviews.each do |review| %>
+  <% @company.reviews.each do |review| %>
     <li>
       <%= review.description %>
       <%= review.average_review_rating %>
