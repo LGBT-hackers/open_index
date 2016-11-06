@@ -1,4 +1,6 @@
 window.onload = function onLoad() {
+  var progressValue = $("#progress").attr('value');
+  console.log(progressValue)
     var circle = new ProgressBar.Circle('#progress', {
         color: '#FCB03C',
         strokeWidth: 4,
@@ -23,5 +25,5 @@ window.onload = function onLoad() {
         }
     });
 
-    circle.animate(1);
+    circle.animate(progressValue);
 };
