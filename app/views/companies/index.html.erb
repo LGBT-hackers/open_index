@@ -1,68 +1,44 @@
 <div class="container-fluid companies">
-	<% if @companies.count == 0 %>
-		<% if !@api_companies %>
-			<div class="no-companies container-fluid">
-				We couldn't find any companies, would you like to add one?
-			</div>
-			<%= link_to 'Add your company here!', new_company_path %>
-		<% else %>
-			<div class="no-companies-gd container-fluid">
-				There are no companies listed here, would you like to add a company off GlassDoor?
-			</p>
-			<% if !@api_companies.empty? %>
-				<% @api_companies.each do |company| %>
-					<p>
-						<%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["squareLogo"], website: company["website"], api: true) %>
-					</p>
-				<% end %>
-			<% end %>
-			<div class="add-companies">
-				Can't find your company?
-			</div>
-			<%= link_to 'Add your company here!', new_company_path %>
-		<% end %>
-	<% else %>
-	<div class="leaderboard_class">
-		<table id="leaderboard" class="table">
-			<tbody>
-				<h1 class="tableHeader" >Leaderboard</h1>
-				<% @leaderboard.each do |company, index| %>
-					<tr>
-						<td class="company-name">
-							<%= company.name %>
-						</td>
-						<td class="company-industry">
-							<%=company.industry %></td>
-						<td class="company-website">
-							<%=company.website %></td>
-						<td class="company-rating">
-							<%= index %>
-						</td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-	<div class="allcompanies">
-		<table class="table">
-			<tbody>
-				<h1 class="tableHeader" >All companies</h1>
-				<% @companies.each do |company| %>
-				<tr>
-					<td class="company-name">
-						<a href="companies/<%=company.id%>"><%=company.name %></a>
-					</td>
-					<td class="company-industry">
-						<%=company.industry %></td>
-					<td class="company-website">
-						<a href="<%=company.website%>"><%=company.website %></a></td>
-					<td class="company-rating">
-						25
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
-	<% end %>
+    <% if @companies.count == 0 %>
+        <% if !@api_companies %>
+            <div class="no-companies container-fluid">
+                We couldn't find any companies, would you like to add one?
+            </div>
+            <%= link_to 'Add your company here!', new_company_path %>
+        <% else %>
+            <div class="no-companies-gd container-fluid">
+                There are no companies listed here, would you like to add a company off GlassDoor?
+            </p>
+            <% if !@api_companies.empty? %>
+                <% @api_companies.each do |company| %>
+                    <p>
+                        <%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["logoUrl"], website: company["website"], api: true) %>
+                    </p>
+                <% end %>
+            <% end %>
+            <div class="add-companies">
+                Can't find your company?
+            </div>
+            <%= link_to 'Add your company here!', new_company_path %>
+        <% end %>
+    <% else %>
+        <table class="table">
+            <tbody>
+                <% @companies.each do |company| %>
+                <tr>
+                    <td class="company-name">
+                        <a href="companies/<%=company.id%>"><%=company.name %></a>
+                    </td>
+                    <td class="company-industry">
+                        <%=company.industry %></td>
+                    <td class="company-website">
+                        <a href="<%=company.website%>"><%=company.website %></a></td>
+                    <td class="company-rating">
+                        <%=company.open_index %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% end %>
 </div>
