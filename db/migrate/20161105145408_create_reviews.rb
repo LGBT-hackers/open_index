@@ -14,6 +14,5 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.timestamps
       t.references :user
     end
-
   end
 end
