@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20161105230632) do
   create_table "reviews", force: :cascade do |t|
     t.text     "description"
     t.integer  "company_id"
-    t.string   "category"
     t.integer  "user_id"
+    t.string   "category"
     t.integer  "question_1"
     t.integer  "question_2"
     t.integer  "question_3"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20161105230632) do
     t.integer  "question_6"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
