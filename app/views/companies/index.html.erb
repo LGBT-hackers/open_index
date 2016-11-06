@@ -12,7 +12,7 @@
             <% if !@api_companies.empty? %>
                 <% @api_companies.each do |company| %>
                     <p>
-                        <%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["logoUrl"], website: company["website"], api: true) %>
+                        <%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["squareLogo"], website: company["website"], api: true) %>
                     </p>
                 <% end %>
             <% end %>
@@ -40,9 +40,15 @@
                         <% if company.industry %><%=company.industry %><%end%></td>
                     <td class="company-website" style="vertical-align:middle">
                         <% if company.website %><a href="<%=company.website%>"><%=company.website %><%end%></a></td>
-                    <td class="company-rating">
-                        <%=company.open_index %>
-                    </td>
+                        <td class="company-rating">
+                         <div class="c100 p<%=company.open_index.round %> small">
+                       <span>  <%=company.open_index.round %></span>
+                       <div class="slice">
+                           <div class="bar"></div>
+                           <div class="fill"></div>
+                       </div>
+                   </div>
+                       </td>
                 </tr>
                 <% end %>
             </tbody>

@@ -1,4 +1,15 @@
 Rails.application.configure do
+
+  # Don't fallback to assets pipeline if a precompiled asset is missed (ON for Heroku)
+config.assets.compile = true
+
+# Compress JavaScripts and CSS (ON for Heroku)
+config.assets.compress = true
+
+# Generate digests for assets URLs (ON for Heroku)
+config.assets.digest = true
+
+config.action_controller.asset_host = "https://open-index.herokuapp.com/" 
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

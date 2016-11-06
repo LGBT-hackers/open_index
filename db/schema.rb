@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20161106085020) do
     t.text     "description"
     t.integer  "company_id"
     t.string   "category"
+    t.integer  "user_id"
     t.integer  "question_1"
     t.integer  "question_2"
     t.integer  "question_3"
@@ -45,7 +46,6 @@ ActiveRecord::Schema.define(version: 20161106085020) do
     t.integer  "question_6"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id"
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
@@ -73,5 +73,4 @@ ActiveRecord::Schema.define(version: 20161106085020) do
 
   add_foreign_key "flags", "reviews"
   add_foreign_key "flags", "users"
-  add_foreign_key "reviews", "users"
 end
