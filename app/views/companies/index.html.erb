@@ -27,12 +27,12 @@
 				<% @leaderboard.each do |company, index| %>
 					<tr>
 						<td class="company-name">
-							<a href="companies/<%=company.id%>"><%=company.name %></a>
+							<%=company.name %>
 						</td>
 						<td class="company-industry">
 							<%=company.industry %></td>
 						<td class="company-website">
-							<a href="<%=company.website%>"><%=company.website %></a></td>
+							<%=company.website %></td>
 						<td class="company-rating">
 							index
 						</td>
