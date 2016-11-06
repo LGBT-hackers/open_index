@@ -12,7 +12,7 @@
 			<% if !@api_companies.empty? %>
 				<% @api_companies.each do |company| %>
 					<p>
-						<%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["logoUrl"], website: company["website"], api: true) %>
+						<%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["squareLogo"], website: company["website"], api: true) %>
 					</p>
 				<% end %>
 			<% end %>

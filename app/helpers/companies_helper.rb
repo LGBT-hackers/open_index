@@ -7,9 +7,9 @@ module CompaniesHelper
 
   def company_params
     if params['company']
-      params['company'].permit(:name, :industry, :logoUrl, :website)
+      params['company'].permit(:name, :industry, :logoUrl, :website, :squareLogo)
     else
-      params.permit(:name, :industry, :logoUrl, :website)
+      params.permit(:name, :industry, :logoUrl, :website, :squareLogo)
     end
   end
 
