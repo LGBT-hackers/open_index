@@ -4,7 +4,5 @@ FactoryGirl.define do
     logoUrl "www.test.com"
     website "www.test.com"
     industry "test industry"
-    # created_at
-    # updated_at
   end
 end
