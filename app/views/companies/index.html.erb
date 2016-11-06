@@ -1,4 +1,4 @@
-<div class="container-fluid companies">
+<div class="container-fluid">
     <% if @companies.count == 0 %>
         <% if !@api_companies %>
             <div class="no-companies container-fluid">
@@ -25,6 +25,12 @@
     <div class="table-responsive">
         <table class="table table-hover">
             <tbody>
+              <tr>
+                <th>Company</th>
+                <th>Industry</th>
+                <th>Website</th>
+                <th>Rating</th>
+              </tr>
                 <% @companies.each do |company| %>
                 <tr>
                     <td class="company-name" style="vertical-align:middle">
