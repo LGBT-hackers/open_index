@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'reviewing' do
+xfeature 'reviewing' do
 
   let!(:company) { create(:company) }
   let!(:user) { create(:user) }
