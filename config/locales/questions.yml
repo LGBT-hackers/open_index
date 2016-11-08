@@ -1,0 +1,14 @@
+questions:
+  lgbt:
+    question_1: "Would you feel comfortable disclosing your sexual orientation at work?"
+    question_2: "Would you feel comfortable reporting harrassment based on sexual orientation?"
+    question_3: "Do you feel sexual orientation does not create any barriers to your career progression?"
+    question_4: "Is there a visible LGBT community in your workplace?"
+    question_5: "Do senior managers demonstrate a visible commitment to the LGBT community"
+    question_6: "Does your workplace have diversirty training to equip staff with knowledege on LGBT issues?"
+options:
+  Strongly Agree: 4
+  Agree: 3
+  Neither Agree Nor Disagree: 2
+  Disagree: 1
+  Strongly Disagree: 0
