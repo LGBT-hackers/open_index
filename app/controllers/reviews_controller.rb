@@ -5,6 +5,9 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    yaml = YAML.load_file("config/locales/questions.yml")
+    @questions = yaml["questions"]["lgbt"]
+    @options = yaml["options"]
     @company = Company.find_by(id: params[:company_id])
     @review = Review.new
   end
