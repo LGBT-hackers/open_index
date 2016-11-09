@@ -9,6 +9,6 @@ questions:
 options:
   Strongly Agree: 4
   Agree: 3
-  Neither Agree Nor Disagree: 2
   Disagree: 1
   Strongly Disagree: 0
+  Neutral: 2

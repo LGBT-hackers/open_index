@@ -5,6 +5,10 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( progress.js )
 
+Rails.application.config.assets.precompile += %w( radioButton.js )
+
+Rails.application.config.assets.precompile += %w( favicon.ico )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
