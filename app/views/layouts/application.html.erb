@@ -14,42 +14,7 @@
 
   <body>
     <div class="container">
-			<nav class="navbar navbar-light bg-faded">
-				<ul class="nav navbar-nav">
-					<a class="navbar-brand" href="/">
-				    <img src="/open_index.png" height="50" alt="">
-				  </a>
-					<li class="nav-item">
-						<%= link_to 'All Companies', companies_path, class: 'nav-link' %>
-					</li>
-					<% if user_signed_in? %>
-						<li class="nav-item">
-							<%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>
-						</li>
-						<li class="nav-item">
-							<%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-						</li>
-					<% else %>
-						<li class="nav-item">
-							<%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
-						</li>
-						<li class="nav-item">
-							<%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
-						</li>
-					<% end %>
-				</ul>
-				<div class="form-inline float-xs-right">
-					<%= form_tag('/companies' , method: :get) do %>
-						<% if params[:name] %>
-							<%= label_tag :name, "You are searching for" %>
-						<% else %>
-							<%= label_tag :name, "Search for" %>
-						<% end %>
-						<%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control") %>
-						<%= submit_tag "Search", :name => nil, class: "btn btn-outline-success"%>
-					<% end %>
-				</div>
-			</nav>
+      <%= render "nav"%>
       <% flash.each do |name, msg| %>
           <%= content_tag(:div, msg, class: "alert alert-info") %>
       <% end %>
