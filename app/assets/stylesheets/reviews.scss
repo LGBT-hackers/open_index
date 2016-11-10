@@ -1,3 +1,216 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Form
+
+.more-info {
+	margin-top: 150px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Gudea);
+
+body {
+  font-family: 'Gudea', Helvetica, sans-serif;
+  margin: 0;
+  paddong: 0;
+  color: #333;
+}
+
+*, *:before, *:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.main {
+	padding: 2em;
+	margin: 0 auto;
+	width: 100%;
+	min-width: 20%;
+	max-width: 95%;
+	background-color: #faebd7;
+	border-radius: 50px;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 1.2em 0;
+  line-height: 150%;
+}
+
+p {
+  margin-top: 2em;
+  line-height: 150%;
+  text-align: center;
+}
+
+a {
+  color: #2A817C;
+}
+
+a:active,
+a:focus,
+a:hover {
+  color: #E87A31;
+}
+
+.radioholder {
+	width: 48%;
+	background: #fff;
+	margin-bottom: 0.5em;
+	font-size: 1.0em;
+	height: 2.4em;
+	color: #666;
+	-o-transition: .1s ease-out;
+	-ms-transition: .1s ease-out;
+	-moz-transition: .1s ease-out;
+	-webkit-transition: .1s ease-out;
+	transition: .1s ease-out;
+	cursor: pointer;
+}
+
+
+.activeradioholder {
+	background: #39A9A4;
+	color: #fff;
+}
+
+.radioholder .desc {
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: .6em;
+	line-height: 2.4em;
+}
+
+.radioholder .tick {
+	display: inline-block;
+	vertical-align: middle;
+	width: 2.4em;
+	height: 100%;
+	background-color: #eee;
+	background-image: none;
+	-o-transition: .1s ease-out;
+	-ms-transition: .1s ease-out;
+	-moz-transition: .1s ease-out;
+	-webkit-transition: .1s ease-out;
+	transition: .1s ease-out;
+}
+
+.activeradioholder .tick {
+	background-color: #2A817C;
+	background-image: url('http://supereightstudio.com/img/radio_tick.png');
+	background-size: cover;
+}
+
+.radioholder:nth-child(odd) {
+	float: right;
+}
+
+.radioholder:nth-child(even) {
+	float: left;
+}
+
+.radioholder:hover {
+	background-color: #eee;
+}
+
+.radioholder:hover .tick {
+	background-color: #ddd;
+}
+
+.activeradioholder:hover {
+	background-color: #39A9A4;
+}
+
+.activeradioholder:hover .tick {
+	background-color: #2A817C;
+}
+
+.selectholder {
+  clear: both;
+	width: 100%;
+	background: #eee;
+	margin-bottom: 1em;
+	font-size: 1em;
+	height: 2.4em;
+	color: #666;
+	-o-transition: .1s ease-out;
+	-ms-transition: .1s ease-out;
+	-moz-transition: .1s ease-out;
+	-webkit-transition: .1s ease-out;
+	transition: .1s ease-out;
+	cursor: pointer;
+}
+
+.selectholder .desc {
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: .8em;
+	line-height: 2.4em;
+}
+
+.selectholder .pulldown {
+	float: right;
+	vertical-align: middle;
+	width: 2.4em;
+	height: 100%;
+	background-color: #ddd;
+	background-image: url('http://supereightstudio.com/img/pulldown.png');
+	background-size: cover;
+	-o-transition: .1s ease-out;
+	-ms-transition: .1s ease-out;
+	-moz-transition: .1s ease-out;
+	-webkit-transition: .1s ease-out;
+	transition: .1s ease-out;
+}
+
+.selectholder:hover,
+.activeselectholder {
+	background-color: #ddd;
+}
+
+.selectholder:hover .pulldown,
+.activeselectholder .pulldown {
+	background-color: #333;
+	background-image: url('http://supereightstudio.com/img/pulldown_hover.png');
+}
+
+.selectholder .selectdropdown {
+	position: relative;
+	top: 0;
+	left: 0;
+	background: #333;
+	color: #fff;
+	display: none;
+	clear: both;
+}
+
+.selectholder .selectdropdown span {
+	display: block;
+	border-bottom: solid 1px #555;
+	padding-left: .8em;
+	line-height: 2.4em;
+	width: 100%;
+	-o-transition: background-color .1s ease-out;
+	-ms-transition: background-color .1s ease-out;
+	-moz-transition: background-color .1s ease-out;
+	-webkit-transition: background-color .1s ease-out;
+	transition: background-color .1s ease-out;
+}
+
+.selectholder .selectdropdown span:last-child {
+	border-bottom: none;
+}
+
+.selectholder .selectdropdown span.active {
+	background-color: #2A817C;
+	background-image: url('http://supereightstudio.com/img/radio_tick.png');
+	background-repeat: no-repeat;
+	background-size: 1.6em 1.6em;
+	background-position: 98% 50%;
+}
+
+.selectholder .selectdropdown span:hover {
+	background-color: #555;
+}
