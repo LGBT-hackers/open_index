@@ -1,9 +1,9 @@
-<h1 style="text_align: center">Open Index review for <%= @company.name %></h1>
+<h1 style="text_align: center" class="header">Open Index review for <%= @company.name %></h1>
 <div class="form">
   <div class="main">
     <%= form_for [@company, @review] do |f| %>
       <% @questions.each do |number, question| %>
-        <h4><%= f.label question %></h4>
+        <h4 class="header"><%= f.label question %></h4>
         <% @options.each do |option, points| %>
           <div class="radioholder">
             <%= f.radio_button number, points %>
@@ -11,7 +11,7 @@
           </div>
         <% end %>
       <% end %>
-      <h4 class="more-info">Would you like to talk a bit more in detail about your experiences at <%= @company.name %>?</h4>
+      <h4 class="more-info header">Would you like to talk a bit more in detail about your experiences at <%= @company.name %>?</h4>
       <%= f.text_area :description, class: 'form-control custom-control'%>
       <%= f.submit 'Leave Review', class: 'btn btn-primary btn-lg' %>
     <% end %>
