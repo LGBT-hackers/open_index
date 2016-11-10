@@ -8,14 +8,7 @@
 	margin-top: 150px;
 }
 
-@import url(http://fonts.googleapis.com/css?family=Gudea);
 
-body {
-  font-family: 'Gudea', Helvetica, sans-serif;
-  margin: 0;
-  paddong: 0;
-  color: #333;
-}
 
 *, *:before, *:after {
 	-webkit-box-sizing: border-box;
@@ -29,8 +22,8 @@ body {
 	width: 100%;
 	min-width: 20%;
 	max-width: 95%;
-	background-color: #faebd7;
-	border-radius: 50px;
+	background-color:  #AEC6CF;
+	border-radius: 25px;
 }
 
 h1 {
@@ -59,7 +52,7 @@ a:hover {
 	width: 48%;
 	background: #fff;
 	margin-bottom: 0.5em;
-	font-size: 1.0em;
+	font-size: 1.1em;
 	height: 2.4em;
 	color: #666;
 	-o-transition: .1s ease-out;
@@ -98,7 +91,7 @@ a:hover {
 }
 
 .activeradioholder .tick {
-	background-color: #2A817C;
+	background-color: #CFCFC4;
 	background-image: url('http://supereightstudio.com/img/radio_tick.png');
 	background-size: cover;
 }
