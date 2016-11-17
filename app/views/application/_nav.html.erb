@@ -30,7 +30,7 @@
           </li>
         <% end %>
         <form class="navbar-form navbar-right search-form" role="search">
-          <input type="text" class="form-control" placeholder="Search" />
+          <%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control") %>
         </form>
 			</ul>
 		</div>

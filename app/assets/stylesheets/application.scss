@@ -11,26 +11,26 @@
 // //  * It is generally better to create a new file per style scope.
 // //
 //
-// @import "bootstrap";
-//
-// @media only screen and (min-width: 320px) {
-//
-//    body { font-size: 0.565em; }
-//
-// }
-//
-// @media only screen and (min-width: 375px) {
-//
-//    body { font-size: 0.68em; }
-//
-// }
-//
-// @media only screen and (min-width: 412px) {
-//
-//    body { font-size: 0.75em; }
-//
-// }
-//
+@import "bootstrap";
+
+@media only screen and (min-width: 320px) {
+
+   body { font-size: 0.565em; }
+
+}
+
+@media only screen and (min-width: 375px) {
+
+   body { font-size: 0.68em; }
+
+}
+
+@media only screen and (min-width: 412px) {
+
+   body { font-size: 0.75em; }
+
+}
+
 // body {
 //   font-family:  Helvetica, sans-serif;
 //   margin: 0;
