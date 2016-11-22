@@ -10,7 +10,7 @@
       <img src="/open_index.png" height="50" alt="" class="logo">
 		</div>
 		<div class="collapse navbar-collapse" id="navbar">
-			<ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left">
         <li class="nav-item">
         <%= link_to 'All Companies', companies_path, class: 'nav-link' %>
         </li>
@@ -29,6 +29,8 @@
             <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
           </li>
         <% end %>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-right search-form" role="search">
           <%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control") %>
         </form>

@@ -14,6 +14,20 @@ nav.navbar-findcond ul.dropdown-menu { border: 0; background: #fff; border-radiu
 nav.navbar-findcond ul.dropdown-menu > li > a { color: #444; }
 nav.navbar-findcond ul.dropdown-menu > li > a:hover { background: #f14444; color: #fff; }
 nav.navbar-findcond span.badge { background: #f14444; font-weight: normal; font-size: 11px; margin: 0 4px; }
-nav.navbar-findcond span.badge.new { background: rgba(255, 0, 0, 0.8); color: #fff; }
-.logo {     margin-bottom: 2px;
-    margin-top: 4px; }
+
+.navbar.navbar-findcond.navbar-fixed-top {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.logo {
+  margin-bottom: 2px;
+  margin-top: 4px;
+  // margin-right: 40px;
+}
+
+.nav-link {
+  margin-top: 10px;
+  padding-right: 2px;
+  padding-left: 2px
+}

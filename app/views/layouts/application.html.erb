@@ -10,11 +10,13 @@
 
   <body>
     <%= render "nav"%>
-    <div class="container">
-      <% flash.each do |name, msg| %>
-          <%= content_tag(:div, msg, class: "alert alert-info") %>
-      <% end %>
-      <%= yield %>
+    <div class="content">
+      <div class="container">
+        <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: "alert alert-info") %>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
   </body>
   <%= javascript_include_tag 'radioButton.js' %>
