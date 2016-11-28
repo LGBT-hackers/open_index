@@ -7,6 +7,8 @@ Rails.application.config.assets.precompile += %w( reviews.scss )
 
 Rails.application.config.assets.precompile += %w( nav.scss )
 
+Rails.application.config.assets.precompile += %w( search.scss )
+
 Rails.application.config.assets.precompile += %w( progress.js )
 
 Rails.application.config.assets.precompile += %w( radioButton.js )
