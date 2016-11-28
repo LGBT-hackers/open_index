@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, :except => [:index, :show]
-
+  before_filter :nav_search_render
+  
   def index
   end
 

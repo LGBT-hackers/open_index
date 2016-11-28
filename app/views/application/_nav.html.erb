@@ -10,7 +10,7 @@
       <img src="/open_index.png" height="50" alt="" class="logo">
 		</div>
 		<div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav navbar-left">
+      <ul class="nav navbar-nav navbar-<%= @nav_search_render ? "left" : "right" %>">
         <li class="nav-item">
         <%= link_to 'All Companies', companies_path, class: 'nav-link' %>
         </li>
@@ -30,11 +30,13 @@
           </li>
         <% end %>
 			</ul>
+      <% if @nav_search_render %>
 			<ul class="nav navbar-nav navbar-right">
         <form class="navbar-form navbar-right search-form" role="search">
           <%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control") %>
         </form>
 			</ul>
+      <% end %>
 		</div>
 	</div>
 </nav>
