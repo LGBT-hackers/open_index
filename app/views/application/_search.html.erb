@@ -1,9 +1,8 @@
 <div class="search">
-  <h1>Search for a company...</h1>
   <div class="row">
     <%= form_tag('/companies' , method: :get) do %>
     <div class="input-group col-md-12 input-group-lg">
-        <%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control text-center") %>
+        <%= text_field_tag(:name, params[:name], placeholder: "Search for a company...", class: "form-control text-center") %>
         <span class="input-group-btn">
           <button class="btn btn-success"><i class="glyphicon glyphicon-search"></i></button>
         </span>
