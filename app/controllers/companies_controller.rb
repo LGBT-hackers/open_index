@@ -1,7 +1,8 @@
 class CompaniesController < ApplicationController
   include CompaniesHelper
-  before_filter :nav_search_render, only: [:index]
-  
+  before_filter(only: [:index]) { |c| c.nav_search_render(false) }
+  before_filter(except: [:index]) { |c| c.nav_search_render(true) }
+
   def index
     @company = Company.new
     @searched_term = params[:name]
