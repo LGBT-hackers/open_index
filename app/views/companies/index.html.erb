@@ -18,7 +18,7 @@
                 <% end %>
             <% end %>
             <div class="add-companies">
-                Still can't find your company?
+                Can't find your company?
             </div>
             <%= link_to 'Add your company here!', new_company_path %>
         <% end %>
@@ -58,35 +58,4 @@
         </table>
       </div>
     <% end %>
-</div>
-
-
-
-
-<div class="title">
-  <h1>
-    Swanky little accordian list
-  </h1>
-  <h2>
-    Made in pure CSS, click on the items to see it in action!
-  </h2>
-</div>
-<div class="wrapper">
-  <input id="pictures" type="checkbox"></input>
-  <label for="pictures">
-    <p>Company not listed? Click here</p>
-    <div class="lil_arrow"></div>
-    <div class="content">
-      <ul>
-        <% if !@api_companies.empty? %>
-            <% @api_companies.each do |company| %>
-            <li>
-              <%= link_to "#{company["name"]}", new_company_path(name: company["name"], industry: company["industry"], logoUrl: company["squareLogo"], website: company["website"], api: true) %>
-            </li>
-            <% end %>
-        <% end %>
-      </ul>
-    </div>
-    <span></span>
-  </label>
 </div>
