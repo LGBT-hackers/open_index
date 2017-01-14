@@ -7,7 +7,9 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-      <img src="/open_index.png" height="50" alt="" class="logo">
+      <%= link_to root_path do %>
+        <img src="/open_index.png" height="50" alt="" class="logo">
+      <% end %>
 		</div>
 		<div class="collapse navbar-collapse" id="navbar">
       <ul class="nav navbar-nav navbar-<%= @nav_search_render ? "left" : "right" %>">
