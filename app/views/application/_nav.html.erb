@@ -1,36 +1,44 @@
-<nav class="navbar navbar-light bg-faded">
-  <ul class="nav navbar-nav">
-    <a class="navbar-brand" href="/">
-      <img src="/open_index.png" height="50" alt="">
-    </a>
-    <li class="nav-item">
-      <%= link_to 'All Companies', companies_path, class: 'nav-link' %>
-    </li>
-    <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-      </li>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
-      </li>
-    <% end %>
-  </ul>
-  <div class="form-inline float-xs-right">
-    <%= form_tag('/companies' , method: :get) do %>
-      <% if params[:name] %>
-        <%= label_tag :name, "You are searching for" %>
-      <% else %>
-        <%= label_tag :name, "Search for" %>
+<nav class="navbar navbar-findcond navbar-fixed-top">
+    <div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+      <%= link_to root_path do %>
+        <img src="/open_index.png" height="50" alt="" class="logo">
       <% end %>
-      <%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control") %>
-      <%= submit_tag "Search", :name => nil, class: "btn btn-outline-success"%>
-    <% end %>
-  </div>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-<%= @nav_search_render ? "left" : "right" %>">
+        <li class="nav-item">
+        <%= link_to 'All Companies', companies_path, class: 'nav-link' %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to 'Edit profile', edit_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+			</ul>
+      <% if @nav_search_render %>
+			<ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form navbar-right search-form" role="search">
+          <%= text_field_tag(:name, params[:name], placeholder: "Company", class: "form-control") %>
+        </form>
+			</ul>
+      <% end %>
+		</div>
+	</div>
 </nav>

@@ -3,7 +3,17 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
+Rails.application.config.assets.precompile += %w( reviews.scss )
+
+Rails.application.config.assets.precompile += %w( nav.scss )
+
+Rails.application.config.assets.precompile += %w( search.scss )
+
 Rails.application.config.assets.precompile += %w( progress.js )
+
+Rails.application.config.assets.precompile += %w( radioButton.js )
+
+Rails.application.config.assets.precompile += %w( favicon.ico )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

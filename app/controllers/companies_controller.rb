@@ -1,14 +1,15 @@
 class CompaniesController < ApplicationController
   include CompaniesHelper
+  before_filter(only: [:index]) { |c| c.nav_search_render(false) }
+  before_filter(except: [:index]) { |c| c.nav_search_render(true) }
+
   def index
     @company = Company.new
     @searched_term = params[:name]
+    @api_companies = []
+    @api_companies = HTTParty.get("http://api.glassdoor.com/api/api.htm?t.p=#{ENV["GD_ID"]}&t.k=#{ENV["GD_KEY"]}&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=#{@searched_term}")["response"]["employers"]
     if search_contains_characters(params)
       @companies =  Company.where('lower(name) LIKE ?', "%#{@searched_term}%".downcase).all.order(:name)
-      @api_companies = []
-      if @companies.count == 0
-         @api_companies = HTTParty.get("http://api.glassdoor.com/api/api.htm?t.p=#{ENV["GD_ID"]}&t.k=#{ENV["GD_KEY"]}&userip=0.0.0.0&useragent=&format=json&v=1&action=employers&q=#{@searched_term}")["response"]["employers"]
-      end
     else
       @companies = Company.all
     end
@@ -19,9 +20,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    if params["api"]
-      company_create
-    end
+    company_create if params["api"]
     @company = Company.new
   end
 

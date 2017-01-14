@@ -3,20 +3,21 @@
   <head>
     <link href="/assets/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <title>Open Index</title>
-    <%= csrf_meta_tags %>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js' %>
-    <%= javascript_include_tag 'progress.js' %>
+    <%= render "load_dependencies"%>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-    <div class="container">
-      <%= render "nav"%>
-      <% flash.each do |name, msg| %>
-          <%= content_tag(:div, msg, class: "alert alert-info") %>
-      <% end %>
-      <%= yield %>
+    <%= render "nav"%>
+    <div class="content">
+      <div class="container">
+        <% flash.each do |name, msg| %>
+            <%= content_tag(:div, msg, class: "alert alert-info") %>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
   </body>
+  <%= javascript_include_tag 'radioButton.js' %>
 </html>
